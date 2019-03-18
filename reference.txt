@@ -1,0 +1,33 @@
+
+1. Lights Status
+  1-1 "GET Lights"
+      GET; https://{{your_ip}}/api/{{user_name}}/lights
+
+
+2. Lights control
+
+  2-1 PUT; https://{{your_ip}}/api/{{user_name}}/groups/2/action
+    {"on": true}
+
+  2-2 "Blink Lights"
+    PUT; https://{{your_ip}}/api/{{user_name}}/groups/2/action
+    body: {"alert":"lselect"}
+
+    *option for alert*
+    lselect: continuous blink for some seconds
+    select: one time
+    none: do not work.
+
+  2-3 "Change Color"
+    PUT; https://{{your_ip}}/api/{{user_name}}/groups/2/action
+    {"hue": 65535, "on": true}
+
+    The hue value to set light to.
+    The hue value is a wrapping value between 0 and 65535.
+    Both 0 and 65535 are red, 25500 is green and 46920 is blue.
+    33761 is white.
+
+
+
+reference: https://developers.meethue.com/develop/hue-api/lights-api/
+Debugging tool:https://{{your_ip}}/debug/clip.html
